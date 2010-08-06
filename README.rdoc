@@ -51,7 +51,7 @@ Please let me know if this works and I will see if I can make the generator cond
 
 While it isn't very flexible at the moment there is an oauth_provider generator which you can use like this:
 
-  ./script/generate oauth_provider
+  rails generate oauth_provider
 
 This generates OAuth and OAuth client controllers as well as the required models.
 
@@ -61,10 +61,14 @@ It requires an authentication framework such as acts_as_authenticated, restful_a
 
 By default the generator generates RSpec and ERB templates. The generator can instead create Test::Unit and/or HAML templates. To do this use the following options:
 
-  ./script/generate oauth_provider --test-unit --haml
+  rails generate oauth_provider --test-unit --haml
   
 These can of course be used individually as well.
 
+A migration file can also be generated using the following option:
+
+  rails generate oauth_provider --migration
+  
 === User Model
 
 Add the following lines to your user model:
@@ -90,7 +94,7 @@ As the flow has changed slightly and there are a couple of database changes it i
 
 You need to add a migration:
 
-  script/generate migration upgrade_oauth
+  rails generate migration upgrade_oauth
 
 Make it look like this:
 
@@ -261,7 +265,7 @@ The oauth_consumer generator creates a controller to manage the authentication f
 
 To run it simply run:
 
-  ./script/generate oauth_consumer
+  rails generate oauth_consumer
 
 This generates the OauthConsumerController as well as the ConsumerToken model.
 
@@ -269,7 +273,7 @@ This generates the OauthConsumerController as well as the ConsumerToken model.
 
 By default the generator generates ERB templates. The generator can instead create HAML templates. To do this use the following options:
 
-  ./script/generate oauth_consumer --haml
+  rails generate oauth_consumer --haml
 
 === Configuration
 

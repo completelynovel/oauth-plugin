@@ -45,13 +45,13 @@ class ClientApplication < ActiveRecord::Base
     
   # If your application requires passing in extra parameters handle it here
   def create_request_token(params={}) 
-    RequestToken.create :client_application => self, :callback_url=>self.token_callback_url
+    RequestToken.create(:client_application => self, :callback_url => self.token_callback_url)
   end
   
-protected
+  protected
   
-  def generate_keys
-    self.key = OAuth::Helper.generate_key(40)[0,40]
-    self.secret = OAuth::Helper.generate_key(40)[0,40]
-  end
+    def generate_keys
+      self.key = OAuth::Helper.generate_key(40)[0,40]
+      self.secret = OAuth::Helper.generate_key(40)[0,40]
+    end
 end
